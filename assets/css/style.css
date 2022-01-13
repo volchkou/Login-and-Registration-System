@@ -159,7 +159,7 @@ body {
 }
 
 .input-mistake {
-    border: var(--border-mistake);
+    border: var(--border-mistake) !important;
 }
 
 .mistake-message {
