@@ -1,0 +1,60 @@
+{
+    "users": [
+        {
+            "username": "aalexwolf",
+            "password": "4e7f56a1081fd3cff7a259ad43ec6a5d",
+            "email": "leshka-povareshka@yandex.ru",
+            "name": "aalexwolf",
+            "salt": 60,
+            "cookie": "0b17c0b62e310801463f539c2524ac47"
+        },
+        {
+            "username": "user alex",
+            "password": "da76d76d5bf644cc19e03eecd583855f",
+            "email": "alexofwallstreet@gmail.com",
+            "name": "alex",
+            "salt": 13,
+            "cookie": "51db48ec5070598313fa0dff90b780e9"
+        },
+        {
+            "username": "alexey",
+            "password": "68f5303dc1d7f8c1a4fd159bb4318787",
+            "email": "alexvolchkou@gmail.com",
+            "name": "Alexey",
+            "salt": 87,
+            "cookie": "4d9fcb1ef2cb2daffa133cfa0a30a736"
+        },
+        {
+            "username": "carlos",
+            "password": "be028d78601818c474233be0b4ea7c0a",
+            "email": "carlos@yandex.ru",
+            "name": "carlos",
+            "salt": 94,
+            "cookie": "2d2fa493384cf908c110a82eeef03930"
+        },
+        {
+            "username": "student",
+            "password": "6bd8ddd52a4049f564f57cc195933014",
+            "email": "fedor1998@yandex.ru",
+            "name": "Arcadiy\u0410\u0440\u043a\u0430\u0434\u0438\u0439",
+            "salt": 54,
+            "cookie": "9ab307f9a414e008b469533e4dd54805"
+        },
+        {
+            "username": "\u0444\u044b\u0432\u0430",
+            "password": "aa1d6eaa0dabe8453db50b0afa4da76a",
+            "email": "sdaf@gmai.com",
+            "name": "\u0444\u044b\u0432\u0430asd",
+            "salt": 21,
+            "cookie": "6f4a03e2de38f54e21bc4619167d874c"
+        },
+        {
+            "username": "aalexwolf   ",
+            "password": "5c800b655a73f9080447dcfe967b0b59",
+            "email": "a@a.ru",
+            "name": "alex",
+            "salt": 72,
+            "cookie": "30c3efb37580c375da5279cefd09e339"
+        }
+    ]
+}

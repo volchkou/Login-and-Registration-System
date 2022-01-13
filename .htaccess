@@ -1,0 +1,4 @@
+<FilesMatch "db.json">
+ Order Allow,Deny
+ Deny from all
+ </FilesMatch>
