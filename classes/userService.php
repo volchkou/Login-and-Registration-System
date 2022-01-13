@@ -24,7 +24,7 @@ class UserService {
     }
 
     public function addUser(User $user) {
-        $passwordSalt = rand(0, 100);
+        $passwordSalt = mt_rand(0, 100);
         $this->dbData->users[] = (object)[
             "username" => $user->getUsername(),
             "password" => $this->hashPassword($passwordSalt, $user->getPassword()),
@@ -34,15 +34,6 @@ class UserService {
             "cookie"   => ""
         ];
         $this->putJson();
-    }
-
-    public function checkUniqueField($field, $value) {
-        foreach ($this->dbData->users as $user) {
-            if ($user->$field === $value) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public function updateCookie($username, $cookie) {
@@ -60,6 +51,15 @@ class UserService {
             return $passwordHash === $user->password;
         }
         return false;
+    }
+
+    public function checkUniqueField($field, $value) {
+        foreach ($this->dbData->users as $user) {
+            if ($user->$field === $value) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private function getFileContent() {

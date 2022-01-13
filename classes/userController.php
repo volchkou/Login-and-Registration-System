@@ -11,7 +11,7 @@ class UserController {
     }
 
     public function login() {
-        $result = $this->validLogin();
+        $result = $this->validateLogin();
 
         if ($result["hasMistakes"] === true) {
             return $result;
@@ -21,35 +21,8 @@ class UserController {
         return $result;
     }
 
-    private function createAuthInfo() {
-        $user = $this->userService->getUser($this->user->getUsername());
-
-        session_start();
-        $_SESSION["login"] = true;
-        $_SESSION["username"] = $user->username;
-        $_SESSION["name"] = $user->name;
-
-        $cookie = $this->generateCookie();
-        $cookieTime = time()+60*60*24*7; //one week
-
-        $this->user->setCookie($cookie);
-        $this->userService->updateCookie($this->user->getUsername(), $this->user->getCookie());
-
-        setcookie('username', $this->user->getUsername(), $cookieTime, "/");
-        setcookie('key', $cookie, $cookieTime, "/");
-    }
-
-    private function generateCookie() {
-        $cookie = '';
-        $length = 8;
-        for ($i=0; $i<$length; $i++) {
-            $cookie .= chr(mt_rand(33,126));
-        }
-        return md5($cookie);
-    }
-
     public function signup() {
-        $result = $this->validSignup();
+        $result = $this->validateSignup();
 
         if ($result["hasMistakes"] === true) {
             return $result;
@@ -59,7 +32,7 @@ class UserController {
         return $result;
     }
 
-    private function validLogin() {
+    private function validateLogin() {
         $usernameMistake = "";
         $passwordMistake = "";
 
@@ -79,12 +52,13 @@ class UserController {
                 )
             );
         }
+
         return array(
             "hasMistakes" => false
         );
     }
 
-    private function validSignup() {
+    private function validateSignup() {
         $usernameMistake = "";
         $passwordMistake = "";
         $passwordRepeatMistake = "";
@@ -158,4 +132,30 @@ class UserController {
         return preg_match("/^[a-zA-ZА-я]{2,}$/u", $this->user->getName());
     }
 
+    private function createAuthInfo() {
+        $user = $this->userService->getUser($this->user->getUsername());
+
+        session_start();
+        $_SESSION["login"] = true;
+        $_SESSION["username"] = $user->username;
+        $_SESSION["name"] = $user->name;
+
+        $cookie = $this->generateCookie();
+        $cookieTime = time()+60*60*24*7; //one week
+
+        $this->user->setCookie($cookie);
+        $this->userService->updateCookie($this->user->getUsername(), $this->user->getCookie());
+
+        setcookie('username', $this->user->getUsername(), $cookieTime, "/");
+        setcookie('key', $cookie, $cookieTime, "/");
+    }
+
+    private function generateCookie() {
+        $cookie = '';
+        $length = 8;
+        for ($i=0; $i<$length; $i++) {
+            $cookie .= chr(mt_rand(33,126));
+        }
+        return md5($cookie);
+    }
 }

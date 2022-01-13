@@ -1,8 +1,8 @@
 <?php
 
 if ($_POST["request"] === "xmlhttprequest") {
-    $username = htmlentities($_POST["username"], ENT_QUOTES, 'UTF-8');
-    $password = htmlentities($_POST["password"], ENT_QUOTES, 'UTF-8');
+    $username = cleanData($_POST["username"]);
+    $password = cleanData($_POST["password"]);
 
     require_once "../classes/user.php";
     require_once "../classes/userController.php";
@@ -18,6 +18,10 @@ if ($_POST["request"] === "xmlhttprequest") {
 }
 
 echo "You are not AJAX request &#9785;";
+
+function cleanData($data) {
+    return htmlentities($data, ENT_QUOTES, 'UTF-8');
+}
 
 
 
