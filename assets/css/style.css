@@ -3,6 +3,7 @@
 :root {
     --main-bg-color: #593085;
     --main-text-color: #ffffff;
+    --main-font-size: 1.125rem;
     --mistake-color: #ff7f7f;
     --transparent-bg: rgba(255,255,255,0.05);
     --radius-value: 6px;
@@ -20,6 +21,7 @@
     font-family: 'Montserrat',sans-serif;
     transition: all 0.3s ease;
     color: var(--main-text-color);
+    font-size: var(--main-font-size);
     word-wrap: break-word;
 }
 
@@ -31,7 +33,7 @@ body {
     max-width: 1320px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 30px;
+    padding: 0 2rem;
 }
 
 .header {
@@ -58,9 +60,7 @@ body {
     height: 100%;
 }
 
-
 .header__menu a {
-    color: var(--main-text-color);
     text-decoration: none;
     font-size: 1.5rem;
     margin-right: 1rem;
@@ -76,8 +76,8 @@ body {
 }
 
 .content {
-    padding-top: 150px;
-    padding-bottom: 50px;
+    padding-top: 9rem;
+    padding-bottom: 3rem;
     display: flex;
     justify-content: center;
 }
@@ -91,7 +91,7 @@ body {
 .content__welcome span {
     color: var(--main-bg-color);
     background: var(--main-text-color);
-    padding-left: 10px;
+    padding-left: 0.625rem;
     font-size: 3rem;
 }
 
@@ -99,17 +99,21 @@ body {
     text-align: center;
 }
 
-
 .forms {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
+.forms__header {
+    font-size: 1.5rem;
+}
+
 .forms__item {
-    width: 500px;
-    margin: 20px 20px;
-    padding: 40px 30px;
+    max-width: 500px;
+    width: 100%;
+    margin: 1.25rem 1.25rem;
+    padding: 2.5rem 2rem;
     background: var(--transparent-bg);
     border-radius: var(--radius-value);
     backdrop-filter: blur(var(--blur-value));
@@ -118,19 +122,35 @@ body {
     box-shadow: var(--box-shadow);
 }
 
-.forms__header {
-    color: var(--main-text-color);
-    font-size: 24px;
+.forms__item button {
+    margin: 1.25rem 0;
+    width: 100%;
+    height: 3rem;
+    color: var(--main-bg-color);
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: var(--input-radius-value);
+    border-top: var(--border-value);
+    border-left: var(--border-value);
+    box-shadow: var(--box-shadow);
 }
 
-input{
-    height: 40px;
+.forms__item label {
+    display: block;
+    margin-top: 1rem;
+}
+
+.forms__item span {
     width: 100%;
-    padding-left: 20px;
-    font-size: 18px;
+}
+
+.forms__item input{
+    height: 2.5rem;
+    width: 100%;
+    padding-left: 1.25rem;
     outline: none;
     border: none;
-    color: var(--main-text-color);
     border-radius: var(--input-radius-value);
     background: var(--transparent-bg);
     border-top: var(--border-value);
@@ -143,37 +163,13 @@ input{
 }
 
 .mistake-message {
-    margin-top: 5px;
+    margin-top: 0.3rem;
     color: var(--mistake-color);
 }
 
 input::placeholder {
     color: var(--main-text-color);
     opacity: 30%;
-}
-
-.forms__item button {
-    margin: 20px 0;
-    width: 100%;
-    height: 50px;
-    color: var(--main-bg-color);
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    border-radius: var(--input-radius-value);
-    border-top: var(--border-value);
-    border-left: var(--border-value);
-    box-shadow: var(--box-shadow);
-}
-
-.forms__item label {
-    display: block;
-    margin-top: 15px;
-}
-
-.forms__item span {
-    width: 100%;
 }
 
 .hidden {
